@@ -23,11 +23,11 @@ class SwanKubeSpawner(define_SwanSpawner_from(KubeSpawner)):
             # Enabling GPU for cuda stacks
             # Options to export nvidia device can be found in https://github.com/NVIDIA/nvidia-container-runtime#nvidia_require_
             if "cu" in self.user_options[self.lcg_rel_field]:
-                self.extra_resource_guarantees["nvidia.com/gpu"] = "1"
-                self.extra_resource_limits["nvidia.com/gpu"] = "1"
+                self.extra_resource_guarantees["nvidia.com/mig-3g.20gb"] = "1"
+                self.extra_resource_limits["nvidia.com/mig-3g.20gb"] = "1"
             elif "nvidia.com/gpu" in self.extra_resource_guarantees:
-                del self.extra_resource_guarantees["nvidia.com/gpu"]
-                del self.extra_resource_limits["nvidia.com/gpu"]
+                del self.extra_resource_guarantees["nvidia.com/mig-3g.20gb"]
+                del self.extra_resource_limits["nvidia.com/mig-3g.20gb"]
 
             # Resource requests and limits for user pods
 
